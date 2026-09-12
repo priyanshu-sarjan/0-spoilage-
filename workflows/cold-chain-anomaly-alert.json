@@ -1,0 +1,279 @@
+{
+  "name": "Cold Chain Anomaly Alert",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cold-chain-telemetry",
+        "options": {}
+      },
+      "id": "633ae648-80dd-4420-868f-ba04ac6e4a0a",
+      "name": "Telemetry Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        480
+      ],
+      "webhookId": "504863c3-f05f-4aaa-9cdb-1572985f226d"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "or",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "temp-high",
+              "leftValue": "={{ $json.body.temperature }}",
+              "rightValue": 10,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            },
+            {
+              "id": "shelf-low",
+              "leftValue": "={{ $json.body.shelf_life_hours }}",
+              "rightValue": 24,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9166375f-3ad1-4f4c-801a-57606805b4e5",
+      "name": "Threshold Exceeded?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        480
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0fcb3a5b-cf5b-4d34-aa51-755e81d2de62",
+      "name": "Anomaly Detected",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        384
+      ]
+    },
+    {
+      "parameters": {
+        "from": "<__PLACEHOLDER_VALUE__Twilio WhatsApp/SMS sender number (e.g. whatsapp:+14155238886)__>",
+        "to": "<__PLACEHOLDER_VALUE__Driver phone number (e.g. whatsapp:+91XXXXXXXXXX)__>",
+        "toWhatsapp": true,
+        "message": "=COLD CHAIN ALERT for batch {{ $json.body.batch_id }} ({{ $json.body.produce }}). Temp {{ $json.body.temperature }}C, est. shelf life {{ $json.body.shelf_life_hours }}h. Device {{ $json.body.device_id }}. Take immediate action.",
+        "options": {}
+      },
+      "id": "9b3a1949-cdfc-4476-b39e-029ce78902a5",
+      "name": "Alert Driver (WhatsApp)",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        672,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "from": "<__PLACEHOLDER_VALUE__Twilio WhatsApp/SMS sender number (e.g. whatsapp:+14155238886)__>",
+        "to": "<__PLACEHOLDER_VALUE__Storage manager phone number (e.g. whatsapp:+91XXXXXXXXXX)__>",
+        "toWhatsapp": true,
+        "message": "=COLD CHAIN ALERT: batch {{ $json.body.batch_id }} ({{ $json.body.produce }}) at risk. Temp {{ $json.body.temperature }}C, shelf life {{ $json.body.shelf_life_hours }}h at device {{ $json.body.device_id }}. Please intervene.",
+        "options": {}
+      },
+      "id": "8085d6ea-fca4-44b9-bce5-4c88719b1769",
+      "name": "Alert Storage Manager (WhatsApp)",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        672,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "",
+          "cachedResultName": "Select cold-chain incident channel"
+        },
+        "text": "=:rotating_light: *COLD CHAIN INCIDENT* :rotating_light:\n*Batch:* {{ $json.body.batch_id }} ({{ $json.body.produce }})\n*Device:* {{ $json.body.device_id }}\n*Temperature:* {{ $json.body.temperature }}°C\n*Humidity:* {{ $json.body.humidity }}%\n*Est. shelf life:* {{ $json.body.shelf_life_hours }}h\n*Location:* {{ $json.body.latitude }}, {{ $json.body.longitude }}\nAutomated markdown discount applied to clear stock.",
+        "otherOptions": {}
+      },
+      "id": "d70ebb75-f3d4-4b98-8bea-b2312a5a43f0",
+      "name": "Post Slack Incident",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [
+        672,
+        384
+      ],
+      "webhookId": "82a14bb4-9896-4752-84a5-ea95cce552e4"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE marketplace_listings SET discount_pct = 25, discount_reason = $2, updated_at = NOW() WHERE batch_id = $1",
+        "options": {
+          "queryReplacement": "={{ $json.body.batch_id }}, spoilage_risk_auto_markdown"
+        }
+      },
+      "id": "28a290be-454f-469a-88f4-8b20f8317a4e",
+      "name": "Apply Discount",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        672,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO telemetry_readings (device_id, batch_id, produce, temperature, humidity, latitude, longitude, shelf_life_hours, status, recorded_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW())",
+        "options": {
+          "queryReplacement": "={{ $json.body.device_id }}, {{ $json.body.batch_id }}, {{ $json.body.produce }}, {{ $json.body.temperature }}, {{ $json.body.humidity }}, {{ $json.body.latitude }}, {{ $json.body.longitude }}, {{ $json.body.shelf_life_hours }}, ALERT"
+        }
+      },
+      "id": "b758c9e1-95de-4c66-a00a-7292f871d1d5",
+      "name": "Log Reading (Alert)",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        672,
+        768
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO telemetry_readings (device_id, batch_id, produce, temperature, humidity, latitude, longitude, shelf_life_hours, status, recorded_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW())",
+        "options": {
+          "queryReplacement": "={{ $json.body.device_id }}, {{ $json.body.batch_id }}, {{ $json.body.produce }}, {{ $json.body.temperature }}, {{ $json.body.humidity }}, {{ $json.body.latitude }}, {{ $json.body.longitude }}, {{ $json.body.shelf_life_hours }}, OK"
+        }
+      },
+      "id": "443c7de0-8bdb-40b3-b56b-21ef1beffb77",
+      "name": "Log Reading (OK)",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        448,
+        576
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telemetry Webhook": {
+      "main": [
+        [
+          {
+            "node": "Threshold Exceeded?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Threshold Exceeded?": {
+      "main": [
+        [
+          {
+            "node": "Anomaly Detected",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Reading (OK)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anomaly Detected": {
+      "main": [
+        [
+          {
+            "node": "Alert Driver (WhatsApp)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Alert Storage Manager (WhatsApp)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post Slack Incident",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apply Discount",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log Reading (Alert)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "62032b47-ed9b-4568-be6b-e7c46d9c1558",
+  "meta": {
+    "instanceId": "dffef3eff6b13cb2a3d3d1f27364ed74c1bee50b833660451c2af8e03c18ff9a"
+  },
+  "nodeGroups": [
+    {
+      "id": "275fee4c-750c-482c-b1cc-693abe235c63",
+      "name": "Alert & Remediate",
+      "nodeIds": [
+        "0fcb3a5b-cf5b-4d34-aa51-755e81d2de62",
+        "9b3a1949-cdfc-4476-b39e-029ce78902a5",
+        "8085d6ea-fca4-44b9-bce5-4c88719b1769",
+        "d70ebb75-f3d4-4b98-8bea-b2312a5a43f0",
+        "28a290be-454f-469a-88f4-8b20f8317a4e",
+        "b758c9e1-95de-4c66-a00a-7292f871d1d5"
+      ],
+      "description": "On threshold breach: notify driver & manager, post Slack incident, apply marketplace discount, log the alert reading."
+    },
+    {
+      "id": "e7e4b132-2d29-4337-b9a8-e96db9550da2",
+      "name": "Log",
+      "nodeIds": [
+        "443c7de0-8bdb-40b3-b56b-21ef1beffb77"
+      ],
+      "description": "Logs safe readings to Postgres on the normal path."
+    }
+  ],
+  "id": "K7PCtWfRPFnG0gsq",
+  "tags": []
+}
