@@ -89,36 +89,86 @@ graph TD
 ## 🛠️ Tech Stack
 
 * **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Shadcn UI components, Framer Motion, Lucide Icons.
+* **REST API Backend (Node.js):** Express 5, CORS, Embedded persistent JSON database (`data/db.json`), Drizzle ORM schema compatibility, IoT Cold-Chain Telemetry Engine, Role-Based Access Control (RBAC).
+* **AI & Smart Contract Engine (Python):** FastAPI, Uvicorn, Pandas, Scikit-learn, Cryptographic SHA-256 Block Ledger (Soil-to-Shelf Provenance), Q10 Biochemical Spoilage Decay Velocity Modeling, Regional Surplus Risk Analytics.
 * **AI & Vision:** Google Gemini API (`gemini-1.5-flash`, `gemini-2.0-flash`) with structured JSON schema responses & client-side fallback simulation.
 * **State & Data:** TanStack React Query, Wouter Routing, LocalStorage Key Persistence.
 
 ---
 
-## ⚡ Quick Start & Local Setup
+## ⚡ Quick Start & Backend Execution
 
-### 1. Clone the Repository
+### 1. Start the Node.js Express Backend (Port 5000)
+The REST API backend runs out of the box with zero external database configuration:
 ```bash
-git clone https://github.com/priyanshu-sarjan/BUILD-WITH-VEXITE-0-Spoilage-.git
-cd BUILD-WITH-VEXITE-0-Spoilage-
+npm start
+# or
+node server.js
 ```
+* **API Base URL:** `http://localhost:5000`
+* **Health Check:** [http://localhost:5000/healthz](http://localhost:5000/healthz)
+* **Persistent Storage:** `data/db.json` (auto-created with pre-seeded demo accounts & batches)
 
-### 2. Install Dependencies
+### 2. Start the Python AI & Smart Contract Microservice (Port 8000)
+Run the high-performance FastAPI engine for AI spoilage analytics and cryptographic ledger verification:
 ```bash
-npm install
+py main.py
+# or
+python main.py
 ```
+* **Interactive OpenAPI Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Health Check:** [http://localhost:8000/health](http://localhost:8000/health)
 
-### 3. Set Up Environment Variables (Optional)
-Create a `.env.local` file in `artifacts/ayutrace/` or root:
-```env
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-```
-> 💡 *Note: If no API key is set, AgriFresh automatically provides rich, realistic simulated Gemini responses so you can test all features out-of-the-box! You can also enter a key directly in the UI via the "Set Gemini API Key" button in the Navbar.*
-
-### 4. Run Development Server
+### 3. Run Automated Backend Tests
+Verify all 66+ API and AI endpoints across both backends:
 ```bash
-npm run dev
+# Test Node.js REST API Suite (45 tests)
+npm test
+# or
+node test-api.js
+
+# Test Python AI & Smart Contract Suite (21 tests)
+py test-python-api.py
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 🔌 API Endpoints Summary
+
+### 🌿 Node.js Express REST API (`server.js` - Port 5000)
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/healthz` | System diagnostics & feature health status |
+| `POST` | `/api/auth/login` | Role-based login (`farmer`, `consumer`, `seller`) |
+| `POST` | `/api/auth/register` | New user registration with hashed password |
+| `GET` | `/api/auth/me` | Fetch authenticated user profile |
+| `GET` | `/api/herbs` | Herb catalog with botanical & regional search |
+| `GET` | `/api/herbs/:id` | Detailed herb profile and linked products |
+| `GET` | `/api/products` | Marketplace produce with clearance filters |
+| `POST` | `/api/products` | List new farm produce |
+| `GET` | `/api/supply-chain/batches` | List all tracked harvest batches |
+| `GET` | `/api/supply-chain/batches/:batchNumber` | Soil-to-shelf QR code traceability timeline |
+| `POST` | `/api/orders` | Place e-commerce purchase order |
+| `GET` | `/api/dashboard/stats` | Global agricultural metrics & spoilage prevented |
+| `GET` | `/api/dashboard/farmer` | Farmer inventory, yield, and revenue metrics |
+| `GET` | `/api/dashboard/consumer` | Consumer purchases, deliveries, recommendations |
+| `GET` | `/api/dashboard/seller` | Trader inventory & fulfillment pipeline |
+| `POST` | `/api/cold-chain-telemetry/telemetry` | Ingest IoT sensor reading & auto-apply markdowns |
+| `POST` | `/api/cold-chain-telemetry/simulate-anomaly` | Simulate reefer temperature breach & alert dispatch |
+| `POST` | `/api/ai/predict-spoilage` | Calculate produce shelf-life loss & decay velocity |
+| `POST` | `/api/ai/dynamic-pricing` | Calculate fair farm-gate payout & 4-day discount curve |
+
+### 🤖 Python AI & Smart Contract Engine (`main.py` - Port 8000)
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/health` | Python microservice health & active ledgers |
+| `POST` | `/api/predict-spoilage` | Biochemical Q10 decay velocity calculation |
+| `POST` | `/api/dynamic-pricing` | Fair farm-gate payout (+18%) & markdown matrix |
+| `GET` | `/api/smart-contract/verify/{batch_id}` | Cryptographic SHA-256 block hash validation |
+| `POST` | `/api/smart-contract/append` | Append verified stage block to blockchain ledger |
+| `GET` | `/api/regional-surplus` | District vegetable production & glut risk analysis |
+| `POST` | `/api/telemetry/ingest` | Ingest IoT sensor packet with anomaly threshold |
+| `GET` | `/docs` | Interactive Swagger API documentation |
 
 ---
 
@@ -127,9 +177,10 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 * **Hackathon Event:** Build With Vexite
 * **Track:** PS Open Innovation
 * **Theme:** 0-Spoilage Agricultural Supply Chain
-* **Repository URL:** [https://github.com/priyanshu-sarjan/BUILD-WITH-VEXITE-0-Spoilage-.git](https://github.com/priyanshu-sarjan/BUILD-WITH-VEXITE-0-Spoilage-.git)
+* **Repository URL:** [https://github.com/priyanshu-sarjan/0-spoilage-.git](https://github.com/priyanshu-sarjan/0-spoilage-.git)
 * **Live Web App:** [https://ai-agent-ps.vercel.app/](https://ai-agent-ps.vercel.app/)
 
 ---
 
 *Made with ❤️ & 🤖⚡ for Indian Farmers & Sustainable Food Logistics.*
+
