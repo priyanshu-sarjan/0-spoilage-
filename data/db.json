@@ -1,0 +1,783 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ramesh Patel (Farmer)",
+      "email": "ramesh.patel@farm.in",
+      "passwordHash": "82c3c1c466c46d25d0329628fad99923d02bb6cc3f1482946dde5fe443e87f82",
+      "role": "farmer",
+      "region": "Nashik, Maharashtra",
+      "avatarUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=150",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 2,
+      "name": "Priya Verma (Consumer)",
+      "email": "priya.verma@consumer.in",
+      "passwordHash": "82c3c1c466c46d25d0329628fad99923d02bb6cc3f1482946dde5fe443e87f82",
+      "role": "consumer",
+      "region": "Mumbai, Maharashtra",
+      "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 3,
+      "name": "Vikram Singh (Trader)",
+      "email": "vikram.singh@gwaliorhub.in",
+      "passwordHash": "82c3c1c466c46d25d0329628fad99923d02bb6cc3f1482946dde5fe443e87f82",
+      "role": "seller",
+      "region": "Gwalior, Madhya Pradesh",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 4,
+      "name": "Test Consumer",
+      "email": "test.consumer.1792007092883@example.com",
+      "passwordHash": "33037d38b960101ffe85d52b21a3ac9065beb4664ad51e4b90cc70b5e6c3394e",
+      "role": "consumer",
+      "region": "Bengaluru, Karnataka",
+      "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+      "createdAt": "2026-10-14T19:44:52.887Z"
+    },
+    {
+      "id": 5,
+      "name": "Test Consumer",
+      "email": "test.consumer.1792007274800@example.com",
+      "passwordHash": "33037d38b960101ffe85d52b21a3ac9065beb4664ad51e4b90cc70b5e6c3394e",
+      "role": "consumer",
+      "region": "Bengaluru, Karnataka",
+      "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+      "createdAt": "2026-10-14T19:47:54.805Z"
+    }
+  ],
+  "herbs": [
+    {
+      "id": 1,
+      "name": "Ashwagandha (Organic Roots)",
+      "botanicalName": "Withania somnifera",
+      "category": "Medicinal Roots",
+      "region": "Vidisha, Madhya Pradesh",
+      "latitude": 23.5251,
+      "longitude": 77.8081,
+      "imageUrl": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600",
+      "benefits": [
+        "Reduces stress & cortisol",
+        "Boosts stamina & endurance",
+        "Supports cognitive memory",
+        "Natural adaptogen"
+      ],
+      "uses": "Root decoctions, herbal infusions, dietary supplements, rejuvenative tonics",
+      "harvestSeason": "Winter (December - February)",
+      "currentStock": 4500,
+      "pricePerKg": 450,
+      "trendScore": 98,
+      "rating": 4.9,
+      "labTested": true
+    },
+    {
+      "id": 2,
+      "name": "Brahmi (Water Hyssop)",
+      "botanicalName": "Bacopa monnieri",
+      "category": "Cognitive Herbs",
+      "region": "Wayanad, Kerala",
+      "latitude": 11.6854,
+      "longitude": 76.132,
+      "imageUrl": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=600",
+      "benefits": [
+        "Enhances neuro-plasticity",
+        "Improves attention span",
+        "Calms nervous agitation"
+      ],
+      "uses": "Medhya Rasayana formulations, memory oils, herbal teas",
+      "harvestSeason": "Monsoon & Post-Monsoon (August - November)",
+      "currentStock": 2800,
+      "pricePerKg": 380,
+      "trendScore": 92,
+      "rating": 4.8,
+      "labTested": true
+    },
+    {
+      "id": 3,
+      "name": "Krishna Tulsi (Holy Basil)",
+      "botanicalName": "Ocimum sanctum",
+      "category": "Immunity Leaves",
+      "region": "Varanasi, Uttar Pradesh",
+      "latitude": 25.3176,
+      "longitude": 82.9739,
+      "imageUrl": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&q=80&w=600",
+      "benefits": [
+        "Powerful respiratory defense",
+        "Antimicrobial & antiviral",
+        "Promotes cellular longevity"
+      ],
+      "uses": "Herbal infusions, steam inhalations, immune tinctures",
+      "harvestSeason": "Year-round (Peak in September - October)",
+      "currentStock": 6200,
+      "pricePerKg": 220,
+      "trendScore": 95,
+      "rating": 4.9,
+      "labTested": true
+    },
+    {
+      "id": 4,
+      "name": "Salem Turmeric (High Curcumin 5.2%)",
+      "botanicalName": "Curcuma longa",
+      "category": "Anti-Inflammatory Rhizomes",
+      "region": "Salem, Tamil Nadu",
+      "latitude": 11.6643,
+      "longitude": 78.146,
+      "imageUrl": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600",
+      "benefits": [
+        "Clinically proven joint mobility support",
+        "Potent antioxidant action",
+        "Liver detox stimulant"
+      ],
+      "uses": "Golden milk extract, culinary spice, therapeutic paste",
+      "harvestSeason": "Spring (January - March)",
+      "currentStock": 12000,
+      "pricePerKg": 180,
+      "trendScore": 96,
+      "rating": 4.9,
+      "labTested": true
+    },
+    {
+      "id": 5,
+      "name": "Shatavari (Asparagus Roots)",
+      "botanicalName": "Asparagus racemosus",
+      "category": "Vitality Roots",
+      "region": "Shimoga, Karnataka",
+      "latitude": 13.9299,
+      "longitude": 75.5681,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600",
+      "benefits": [
+        "Balances female endocrine health",
+        "Soothes gastrointestinal lining",
+        "Nourishes reproductive tissues"
+      ],
+      "uses": "Ghritham formulations, herbal tonics, wellness powders",
+      "harvestSeason": "Autumn (October - December)",
+      "currentStock": 3100,
+      "pricePerKg": 520,
+      "trendScore": 89,
+      "rating": 4.7,
+      "labTested": true
+    }
+  ],
+  "products": [
+    {
+      "id": 6,
+      "name": "Vidisha Hydroponic Fresh Spinach",
+      "description": "Zero-pesticide cold-storage preserved hydroponic spinach.",
+      "price": 35,
+      "discountPrice": 35,
+      "isClearance": false,
+      "discountPct": 0,
+      "category": "Vegetables",
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 500,
+      "sellerId": 1,
+      "sellerName": "Ramesh Patel (Farmer)",
+      "batchNumber": "BATCH-SPINACH-VID-01",
+      "freshnessScore": 95,
+      "daysRemaining": 7,
+      "rating": 5,
+      "reviewCount": 0,
+      "createdAt": "2026-10-14T19:47:54.894Z"
+    },
+    {
+      "id": 5,
+      "name": "Vidisha Hydroponic Fresh Spinach",
+      "description": "Zero-pesticide cold-storage preserved hydroponic spinach.",
+      "price": 35,
+      "discountPrice": 35,
+      "isClearance": false,
+      "discountPct": 0,
+      "category": "Vegetables",
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 500,
+      "sellerId": 1,
+      "sellerName": "Ramesh Patel (Farmer)",
+      "batchNumber": "BATCH-SPINACH-VID-01",
+      "freshnessScore": 95,
+      "daysRemaining": 7,
+      "rating": 5,
+      "reviewCount": 0,
+      "createdAt": "2026-10-14T19:44:52.953Z"
+    },
+    {
+      "id": 1,
+      "name": "Gwalior Fresh Dasheri Mangoes (Flash Sale)",
+      "description": "Picked fresh from Gwalior orchards. High spoilage risk - 54% clearance discount applied to ensure zero waste!",
+      "price": 85,
+      "discountPrice": 39,
+      "isClearance": true,
+      "discountPct": 54,
+      "category": "Fruits",
+      "imageUrl": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 844,
+      "sellerId": 3,
+      "sellerName": "Gwalior Farmer Collective",
+      "batchNumber": "BATCH-MANGO-GWL-4410",
+      "freshnessScore": 82,
+      "daysRemaining": 2,
+      "rating": 4.8,
+      "reviewCount": 38,
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 2,
+      "name": "Nashik Organic Farm Red Tomatoes",
+      "description": "Farm-fresh ripe tomatoes from Nashik perishable zone. Express cold-chain routed with automated IoT alerts.",
+      "price": 40,
+      "discountPrice": 20,
+      "isClearance": true,
+      "discountPct": 50,
+      "category": "Vegetables",
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 1400,
+      "sellerId": 1,
+      "sellerName": "Nashik Perishable Farmers FPO",
+      "batchNumber": "BATCH-TOMATO-NSK-9021",
+      "freshnessScore": 75,
+      "daysRemaining": 2,
+      "rating": 4.6,
+      "reviewCount": 52,
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 3,
+      "name": "Lasalgaon Red Onions (Premium Storage)",
+      "description": "High shelf-life premium onions stored at optimal ventilated humidity with zero sprouting risk.",
+      "price": 32,
+      "discountPrice": 32,
+      "isClearance": false,
+      "discountPct": 0,
+      "category": "Vegetables",
+      "imageUrl": "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 8000,
+      "sellerId": 1,
+      "sellerName": "Lasalgaon Agri Warehouse",
+      "batchNumber": "BATCH-ONION-LAS-1024",
+      "freshnessScore": 96,
+      "daysRemaining": 45,
+      "rating": 4.9,
+      "reviewCount": 114,
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 4,
+      "name": "Pure Organic Ashwagandha Root Powder (Grade A+)",
+      "description": "Stone-ground Withania somnifera root powder from certified pesticide-free organic farms in Vidisha.",
+      "price": 350,
+      "discountPrice": 299,
+      "isClearance": false,
+      "discountPct": 15,
+      "category": "Supplements",
+      "imageUrl": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800",
+      "stockQty": 620,
+      "sellerId": 3,
+      "sellerName": "AyuTrace Certified Botanicals",
+      "batchNumber": "BATCH-HERB-ASHWA-001",
+      "freshnessScore": 98,
+      "daysRemaining": 180,
+      "rating": 4.9,
+      "reviewCount": 88,
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    }
+  ],
+  "supplyChainBatches": [
+    {
+      "id": 5,
+      "batchNumber": "BATCH-ORGA-4929",
+      "cropName": "Organic Strawberries",
+      "farmerId": 1,
+      "farmerName": "Ramesh Patel (Farmer)",
+      "farmLocation": "Mahabaleshwar Hills, Maharashtra",
+      "farmCoordinates": {
+        "lat": 20,
+        "lng": 74
+      },
+      "harvestDate": "2026-10-14",
+      "quantityKg": 850,
+      "soilPh": 6.5,
+      "soilNpk": "N:135, P:40, K:160",
+      "organicCertified": true,
+      "currentStage": "Harvest Completed",
+      "currentTempC": 8.5,
+      "humidityPct": 80,
+      "status": "OK",
+      "stages": [
+        {
+          "stage": "Farm Harvest & Registration",
+          "location": "Mahabaleshwar Hills, Maharashtra",
+          "timestamp": "2026-10-14T19:47:54.929Z",
+          "details": "Harvest logged by Ramesh Patel (Farmer). Smart contract verified.",
+          "verified": true
+        }
+      ],
+      "smartContractHash": "0xd3c1c66c72cbda5233fee7b351973b98c78fd60475f54a47e0d418e950ebf92a",
+      "createdAt": "2026-10-14T19:47:54.929Z"
+    },
+    {
+      "id": 4,
+      "batchNumber": "BATCH-ORGA-2987",
+      "cropName": "Organic Strawberries",
+      "farmerId": 1,
+      "farmerName": "Ramesh Patel (Farmer)",
+      "farmLocation": "Mahabaleshwar Hills, Maharashtra",
+      "farmCoordinates": {
+        "lat": 20,
+        "lng": 74
+      },
+      "harvestDate": "2026-10-14",
+      "quantityKg": 850,
+      "soilPh": 6.5,
+      "soilNpk": "N:135, P:40, K:160",
+      "organicCertified": true,
+      "currentStage": "Harvest Completed",
+      "currentTempC": 8.5,
+      "humidityPct": 80,
+      "status": "OK",
+      "stages": [
+        {
+          "stage": "Farm Harvest & Registration",
+          "location": "Mahabaleshwar Hills, Maharashtra",
+          "timestamp": "2026-10-14T19:44:52.987Z",
+          "details": "Harvest logged by Ramesh Patel (Farmer). Smart contract verified.",
+          "verified": true
+        }
+      ],
+      "smartContractHash": "0x82679ae4894d31b92149b91ffdb7872c86a57adc854de8d9772575977276e240",
+      "createdAt": "2026-10-14T19:44:52.987Z"
+    },
+    {
+      "id": 1,
+      "batchNumber": "BATCH-TOMATO-NSK-9021",
+      "cropName": "Fresh Tomatoes",
+      "farmerId": 1,
+      "farmerName": "Ramesh Patel",
+      "farmLocation": "Nashik Agricultural Belt, Maharashtra",
+      "farmCoordinates": {
+        "lat": 19.9975,
+        "lng": 73.7898
+      },
+      "harvestDate": "2026-10-12",
+      "quantityKg": 2500,
+      "soilPh": 6.8,
+      "soilNpk": "N:140, P:45, K:180",
+      "organicCertified": true,
+      "currentStage": "Cold Storage In-Transit",
+      "currentTempC": 16,
+      "humidityPct": 89,
+      "status": "ALERT",
+      "alertReason": "Temperature exceeded 10°C threshold (current: 14.5°C). Auto-discount applied.",
+      "stages": [
+        {
+          "stage": "Farm Harvest",
+          "location": "Nashik Green Farms (Plot #4)",
+          "timestamp": "2026-10-12T19:42:14.949Z",
+          "details": "Grade A harvest completed. Hand-picked at 85% ripeness.",
+          "verified": true
+        },
+        {
+          "stage": "Cold Depot Dispatch",
+          "location": "Nashik Perishable Hub WH-01",
+          "timestamp": "2026-10-13T19:42:14.949Z",
+          "details": "Pre-cooled to 6.0°C. QR tracking generated and sealed.",
+          "verified": true
+        },
+        {
+          "stage": "Reefer Truck Transit",
+          "location": "NH-160 Expressway En-route Mumbai",
+          "timestamp": "2026-10-14T16:42:14.949Z",
+          "details": "IoT Sensor IOT-SENS-NSK-09 detected cooling fluctuation (14.5°C).",
+          "verified": true
+        },
+        {
+          "stage": "Cold Chain Anomaly Detected",
+          "location": "GPS: 19.9975, 73.7898",
+          "timestamp": "2026-10-14T19:44:53.111Z",
+          "details": "Temperature reached 15.5°C. Auto-markdown (60%) applied. Driver alerted.",
+          "verified": true
+        },
+        {
+          "stage": "Cold Chain Anomaly Detected",
+          "location": "GPS: 19.9975, 73.7898",
+          "timestamp": "2026-10-14T19:47:55.067Z",
+          "details": "Temperature reached 15.5°C. Auto-markdown (60%) applied. Driver alerted.",
+          "verified": true
+        }
+      ],
+      "smartContractHash": "0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 2,
+      "batchNumber": "BATCH-MANGO-GWL-4410",
+      "cropName": "Dasheri Mangoes",
+      "farmerId": 3,
+      "farmerName": "Vikram Singh Orchards",
+      "farmLocation": "Gwalior Central Valley, MP",
+      "farmCoordinates": {
+        "lat": 26.2183,
+        "lng": 78.1828
+      },
+      "harvestDate": "2026-10-11",
+      "quantityKg": 1800,
+      "soilPh": 7.1,
+      "soilNpk": "N:120, P:35, K:160",
+      "organicCertified": true,
+      "currentStage": "Cold Storage Depot",
+      "currentTempC": 4.2,
+      "humidityPct": 82,
+      "status": "OK",
+      "stages": [
+        {
+          "stage": "Farm Harvest",
+          "location": "Gwalior Orchard Unit #2",
+          "timestamp": "2026-10-11T19:42:14.949Z",
+          "details": "Tree-ripened pesticide-free Dasheri mango harvest.",
+          "verified": true
+        },
+        {
+          "stage": "Cold Storage Depot",
+          "location": "Gwalior Central Cold Storage (WH-GWL-01)",
+          "timestamp": "2026-10-13T07:42:14.949Z",
+          "details": "Stored at optimal 4.2°C, 82% RH. Nitrogen preservation active.",
+          "verified": true
+        }
+      ],
+      "smartContractHash": "0x3e49cf912808a7065963b0a944372af9b7c8c36b80104618a8b13689408269d0",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    },
+    {
+      "id": 3,
+      "batchNumber": "BATCH-HERB-ASHWA-001",
+      "cropName": "Ashwagandha Root (Grade A+)",
+      "farmerId": 1,
+      "farmerName": "Vidisha Medicinal Collective",
+      "farmLocation": "Vidisha Agro Zone, MP",
+      "farmCoordinates": {
+        "lat": 23.5251,
+        "lng": 77.8081
+      },
+      "harvestDate": "2026-09-30",
+      "quantityKg": 4500,
+      "soilPh": 7.4,
+      "soilNpk": "N:110, P:50, K:140",
+      "organicCertified": true,
+      "currentStage": "Distribution Hub",
+      "currentTempC": 18,
+      "humidityPct": 45,
+      "status": "OK",
+      "stages": [
+        {
+          "stage": "Root Harvest & Solar Dehydration",
+          "location": "Vidisha Certified Bio-Farm",
+          "timestamp": "2026-09-30T19:42:14.949Z",
+          "details": "Harvested and solar-dried to <8% residual moisture.",
+          "verified": true
+        },
+        {
+          "stage": "Laboratory Assay",
+          "location": "National Institute of Ayurvedic Diagnostics",
+          "timestamp": "2026-10-04T19:42:14.949Z",
+          "details": "Withanolide content: 2.85% (Exceeds Pharmacopoeia standard 2.0%). PASS.",
+          "verified": true
+        },
+        {
+          "stage": "Distribution Ready",
+          "location": "Central AyuTrace Hub (Pune)",
+          "timestamp": "2026-10-12T19:42:14.949Z",
+          "details": "Vacuum sealed in nitrogen flush containers.",
+          "verified": true
+        }
+      ],
+      "smartContractHash": "0x9a84b3d758c5c3d258b3a0e6981cf03b9f874bc0891d4e0e29b87a91cb2c2354",
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": 105,
+      "consumerId": 1,
+      "consumerName": "Ramesh Patel (Farmer)",
+      "productId": 1,
+      "productName": "Gwalior Fresh Dasheri Mangoes (Flash Sale)",
+      "productImageUrl": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800",
+      "quantity": 3,
+      "unitPrice": 39,
+      "totalPrice": 117,
+      "status": "processing",
+      "batchId": "BATCH-MANGO-GWL-4410",
+      "trackingNumber": "TRK-IN-684208",
+      "deliveryAddress": "Flat 12, Green Acres, Pune 411001",
+      "createdAt": "2026-10-14T19:47:54.938Z"
+    },
+    {
+      "id": 104,
+      "consumerId": 1,
+      "consumerName": "Ramesh Patel (Farmer)",
+      "productId": 1,
+      "productName": "Gwalior Fresh Dasheri Mangoes (Flash Sale)",
+      "productImageUrl": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800",
+      "quantity": 3,
+      "unitPrice": 39,
+      "totalPrice": 117,
+      "status": "processing",
+      "batchId": "BATCH-MANGO-GWL-4410",
+      "trackingNumber": "TRK-IN-141808",
+      "deliveryAddress": "Flat 12, Green Acres, Pune 411001",
+      "createdAt": "2026-10-14T19:44:53.003Z"
+    },
+    {
+      "id": 101,
+      "consumerId": 2,
+      "consumerName": "Priya Verma",
+      "productId": 1,
+      "productName": "Gwalior Fresh Dasheri Mangoes (Flash Sale)",
+      "productImageUrl": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800",
+      "quantity": 5,
+      "unitPrice": 39,
+      "totalPrice": 195,
+      "status": "shipped",
+      "batchId": "BATCH-MANGO-GWL-4410",
+      "trackingNumber": "TRK-IN-908123",
+      "deliveryAddress": "402, Sea View Residency, Bandra West, Mumbai 400050",
+      "createdAt": "2026-10-14T11:42:14.949Z"
+    },
+    {
+      "id": 102,
+      "consumerId": 2,
+      "consumerName": "Priya Verma",
+      "productId": 2,
+      "productName": "Nashik Organic Farm Red Tomatoes",
+      "productImageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
+      "quantity": 10,
+      "unitPrice": 20,
+      "totalPrice": 200,
+      "status": "processing",
+      "batchId": "BATCH-TOMATO-NSK-9021",
+      "trackingNumber": "TRK-IN-908124",
+      "deliveryAddress": "402, Sea View Residency, Bandra West, Mumbai 400050",
+      "createdAt": "2026-10-14T17:42:14.949Z"
+    },
+    {
+      "id": 103,
+      "consumerId": 2,
+      "consumerName": "Priya Verma",
+      "productId": 4,
+      "productName": "Pure Organic Ashwagandha Root Powder (Grade A+)",
+      "productImageUrl": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800",
+      "quantity": 2,
+      "unitPrice": 299,
+      "totalPrice": 598,
+      "status": "delivered",
+      "batchId": "BATCH-HERB-ASHWA-001",
+      "trackingNumber": "TRK-IN-908101",
+      "deliveryAddress": "402, Sea View Residency, Bandra West, Mumbai 400050",
+      "createdAt": "2026-10-09T19:42:14.949Z"
+    }
+  ],
+  "communityPosts": [
+    {
+      "id": 1,
+      "author": "Kisan Vikas Advisory Board",
+      "authorRole": "Agri Expert",
+      "title": "🌾 Zero-Spoilage Protocol: Managing Summer Tomato Surpluses",
+      "content": "High temperatures in Nashik are accelerating ripening velocity. We advise all member farmers to schedule early-morning harvests before 8 AM and utilize our mobile pre-cooling trailers. Dynamic markdowns are live on the marketplace to clear 100% of yield within 48 hours.",
+      "category": "announcements",
+      "tags": [
+        "ZeroSpoilage",
+        "ColdChain",
+        "FarmerAdvisory"
+      ],
+      "likes": 144,
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
+      "createdAt": "2026-10-14T07:42:14.949Z"
+    },
+    {
+      "id": 2,
+      "author": "Dr. Ananya Joshi (BAMS, MD)",
+      "authorRole": "Ayurvedic Physician",
+      "title": "🌿 Why Ashwagandha Grown in Alkaline Soil Shows 28% Higher Withanolides",
+      "content": "Recent lab certifications from Vidisha batches confirm that dry, rocky limestone soils trigger natural adaptogenic resilience in Withania somnifera. Look for the QR Code Soil Health stamp on each package to verify lab purity before purchase.",
+      "category": "wellness",
+      "tags": [
+        "Ayurveda",
+        "Ashwagandha",
+        "SoilHealth"
+      ],
+      "likes": 219,
+      "imageUrl": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800",
+      "createdAt": "2026-10-13T07:42:14.949Z"
+    },
+    {
+      "id": 3,
+      "author": "AgriFresh Cold Chain Telemetry Network",
+      "authorRole": "Automated System",
+      "title": "🚨 Automated IoT Markdown Event: Nashik Route Fluctuation Handled",
+      "content": "IoT reefer sensor IOT-SENS-NSK-09 detected 14.5°C transit anomaly. The 0-Spoilage AI engine automatically instituted a 50% flash discount. Result: 2.5 tonnes of Grade-A tomatoes were claimed by local food processors in 42 minutes, preventing total crop loss.",
+      "category": "trending",
+      "tags": [
+        "AIAlert",
+        "DynamicPricing",
+        "CaseStudy"
+      ],
+      "likes": 384,
+      "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+      "createdAt": "2026-10-14T15:42:14.949Z"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 3,
+      "name": "Test Farmer",
+      "email": "test.farmer@apmc.in",
+      "type": "feedback",
+      "message": "Dynamic markdown algorithm prevented 100% of tomato spoilage during heatwave.",
+      "rating": 5,
+      "createdAt": "2026-10-14T19:47:55.049Z"
+    },
+    {
+      "id": 2,
+      "name": "Test Farmer",
+      "email": "test.farmer@apmc.in",
+      "type": "feedback",
+      "message": "Dynamic markdown algorithm prevented 100% of tomato spoilage during heatwave.",
+      "rating": 5,
+      "createdAt": "2026-10-14T19:44:53.094Z"
+    },
+    {
+      "id": 1,
+      "name": "Sunil Deshmukh",
+      "email": "sunil.d@farmercoop.org",
+      "type": "feedback",
+      "message": "The automated dynamic markdown cleared my entire tomato harvest before spoilage set in. Received fair payout within 24 hours!",
+      "rating": 5,
+      "createdAt": "2026-10-14T19:42:14.948Z"
+    }
+  ],
+  "telemetryReadings": [
+    {
+      "id": "sim-1792007275080",
+      "device_id": "IOT-SENS-NSK-09",
+      "batch_id": "BATCH-TOMATO-NSK-9021",
+      "produce": "Fresh Tomatoes",
+      "temperature": 16,
+      "humidity": 91,
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "shelf_life_hours": 14,
+      "status": "ALERT",
+      "recordedAt": "2026-10-14T19:47:55.080Z",
+      "discountApplied": {
+        "discountPct": 50,
+        "discountReason": "simulated_anomaly_markdown"
+      },
+      "alerts": {
+        "driverWhatsapp": "🚨 EMERGENCY SENSOR ALERT: Batch BATCH-TOMATO-NSK-9021 temp is 16°C. Automated 50% discount active.",
+        "dispatchSlack": "Cold chain breach on NH-160 corridor. Flash clearance sale initiated."
+      }
+    },
+    {
+      "id": "telemetry-1792007275067",
+      "deviceId": "IOT-SENS-NSK-09",
+      "batchId": "BATCH-TOMATO-NSK-9021",
+      "produce": "Fresh Tomatoes",
+      "temperature": 15.5,
+      "humidity": 89,
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "shelfLifeHours": 14,
+      "status": "ALERT",
+      "recordedAt": "2026-10-14T19:47:55.067Z",
+      "discountApplied": {
+        "discountPct": 60,
+        "discountReason": "critical_spoilage_flash_sale_60pct"
+      },
+      "alerts": {
+        "driverWhatsapp": "⚠️ COLD CHAIN ALERT: Batch BATCH-TOMATO-NSK-9021 temp reached 15.5°C. Inspect cooling unit.",
+        "managerSms": "ALERT: Auto-markdown 60% active for BATCH-TOMATO-NSK-9021 to clear stock without spoilage."
+      }
+    },
+    {
+      "id": "sim-1792007093126",
+      "device_id": "IOT-SENS-NSK-09",
+      "batch_id": "BATCH-TOMATO-NSK-9021",
+      "produce": "Fresh Tomatoes",
+      "temperature": 16,
+      "humidity": 91,
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "shelf_life_hours": 14,
+      "status": "ALERT",
+      "recordedAt": "2026-10-14T19:44:53.126Z",
+      "discountApplied": {
+        "discountPct": 50,
+        "discountReason": "simulated_anomaly_markdown"
+      },
+      "alerts": {
+        "driverWhatsapp": "🚨 EMERGENCY SENSOR ALERT: Batch BATCH-TOMATO-NSK-9021 temp is 16°C. Automated 50% discount active.",
+        "dispatchSlack": "Cold chain breach on NH-160 corridor. Flash clearance sale initiated."
+      }
+    },
+    {
+      "id": "telemetry-1792007093111",
+      "deviceId": "IOT-SENS-NSK-09",
+      "batchId": "BATCH-TOMATO-NSK-9021",
+      "produce": "Fresh Tomatoes",
+      "temperature": 15.5,
+      "humidity": 89,
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "shelfLifeHours": 14,
+      "status": "ALERT",
+      "recordedAt": "2026-10-14T19:44:53.111Z",
+      "discountApplied": {
+        "discountPct": 60,
+        "discountReason": "critical_spoilage_flash_sale_60pct"
+      },
+      "alerts": {
+        "driverWhatsapp": "⚠️ COLD CHAIN ALERT: Batch BATCH-TOMATO-NSK-9021 temp reached 15.5°C. Inspect cooling unit.",
+        "managerSms": "ALERT: Auto-markdown 60% active for BATCH-TOMATO-NSK-9021 to clear stock without spoilage."
+      }
+    },
+    {
+      "id": "telemetry-1",
+      "deviceId": "IOT-SENS-NSK-09",
+      "batchId": "BATCH-TOMATO-NSK-9021",
+      "produce": "Fresh Tomatoes",
+      "temperature": 14.5,
+      "humidity": 88,
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "shelfLifeHours": 18,
+      "status": "ALERT",
+      "recordedAt": "2026-10-14T19:27:14.949Z",
+      "discountApplied": {
+        "discountPct": 50,
+        "discountReason": "spoilage_risk_auto_markdown"
+      },
+      "alerts": {
+        "driverWhatsapp": "COLD CHAIN ALERT: Batch BATCH-TOMATO-NSK-9021 temperature 14.5°C. Check reefer compressor immediately.",
+        "managerSms": "URGENT: 2,500 kg tomatoes at risk in Transit NSK->BOM. Dynamic markdown applied to avoid food loss.",
+        "incidentLog": "Automated markdown active. Clearance rate ₹20/kg."
+      }
+    },
+    {
+      "id": "telemetry-2",
+      "deviceId": "IOT-SENS-GWL-02",
+      "batchId": "BATCH-MANGO-GWL-4410",
+      "produce": "Dasheri Mangoes",
+      "temperature": 4.2,
+      "humidity": 82,
+      "latitude": 26.2183,
+      "longitude": 78.1828,
+      "shelfLifeHours": 72,
+      "status": "OK",
+      "recordedAt": "2026-10-14T19:02:14.949Z"
+    }
+  ]
+}
